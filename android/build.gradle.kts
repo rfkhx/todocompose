@@ -19,7 +19,7 @@ dependencies {
 android {
     compileSdkVersion(31)
     defaultConfig {
-        applicationId = "top.ntutn.android"
+        applicationId = "top.ntutn.hrtodo.android"
         minSdkVersion(24)
         targetSdkVersion(31)
         versionCode = 1

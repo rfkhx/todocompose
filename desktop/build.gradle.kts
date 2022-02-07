@@ -32,8 +32,14 @@ compose.desktop {
         mainClass = "MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "jvm"
+            packageName = "海瑞待办"
             packageVersion = "1.0.0"
+
+            linux {
+                packageName = "hairuitodo"
+                debMaintainer = "ntutn.top@gmail.com"
+                iconFile.set(project.file("todo_launcher.png"))
+            }
         }
     }
 }
