@@ -40,6 +40,16 @@ compose.desktop {
                 debMaintainer = "ntutn.top@gmail.com"
                 iconFile.set(project.file("todo_launcher.png"))
             }
+
+            macOS {
+                packageName = "hairuitodo"
+                dockName = "海瑞待办"
+                iconFile.set(project.file("todo_launcher.icns"))
+            }
+
+            windows {
+                iconFile.set(project.file("todo_launcher.ico"))
+            }
         }
     }
 }

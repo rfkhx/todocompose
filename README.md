@@ -8,6 +8,7 @@
 
 - Android
 - Linux
+- macOS
 
 ### 编译打包的坑
 
