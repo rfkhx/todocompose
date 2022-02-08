@@ -21,6 +21,17 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew :desktop:packageMsi
 
+      - name: Publish windows version
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "windows-latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            README.md
+            desktop/build/compose/binaries/main/msi/*.msi
+
   ubuntu:
     runs-on: ubuntu-latest
     steps:
