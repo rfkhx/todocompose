@@ -3,6 +3,9 @@ name: Push
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   windows:
     runs-on: windows-latest
@@ -21,6 +24,7 @@ jobs:
         run: ./gradlew :desktop:packageMsi
 
       - name: Publish windows version
+        if: ${{ github.event_name == 'push' }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -48,6 +52,7 @@ jobs:
         run: ./gradlew :desktop:packageDeb
 
       - name: Publish ubuntu version
+        if: ${{ github.event_name == 'push' }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -74,6 +79,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew :desktop:packageDmg
       - name: Publish macOS version
+        if: ${{ github.event_name == 'push' }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -102,6 +108,7 @@ jobs:
         run: ./gradlew :android:assembleRelease
       - uses: r0adkll/sign-android-release@v1
         name: Sign app APK
+        if: ${{ github.event_name == 'push' }}
         # ID used to access action output
         id: sign_app
         with:
@@ -114,6 +121,7 @@ jobs:
           # override default build-tools version (29.0.3) -- optional
           BUILD_TOOLS_VERSION: "30.0.2"
       - name: Publish android version
+        if: ${{ github.event_name == 'push' }}
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
