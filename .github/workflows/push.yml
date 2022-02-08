@@ -3,7 +3,6 @@ name: Push
 on:
   push:
     branches: [ main ]
-# todo auto publish
 jobs:
   windows:
     runs-on: windows-latest
@@ -74,6 +73,18 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew :desktop:packageDmg
+      - name: Publish macOS version
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "macos-latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            README.md
+            desktop/build/compose/binaries/main/dmg/*.dmg
+
+
   android:
     runs-on: ubuntu-latest
     steps:
