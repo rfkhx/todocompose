@@ -48,6 +48,17 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew :desktop:packageDeb
 
+      - name: Publish ubuntu version
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "ubuntu-latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            README.md
+            desktop/build/compose/binaries/main/deb/*.deb
+
   macos:
     runs-on: macos-latest
     steps:
