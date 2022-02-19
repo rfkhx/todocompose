@@ -2,11 +2,11 @@ package top.ntutn.android
 
 import top.ntutn.common.App
 import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
-import moe.tlaster.precompose.lifecycle.PreComposeActivity
-import moe.tlaster.precompose.lifecycle.setContent
 
-class MainActivity : PreComposeActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
