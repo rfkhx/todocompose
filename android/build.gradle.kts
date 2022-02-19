@@ -22,8 +22,6 @@ android {
         applicationId = "top.ntutn.hrtodo.android"
         minSdkVersion(24)
         targetSdkVersion(31)
-        versionCode = 1
-        versionName = "1.0"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

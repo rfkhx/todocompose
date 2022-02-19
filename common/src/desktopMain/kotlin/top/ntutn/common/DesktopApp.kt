@@ -8,3 +8,9 @@ import androidx.compose.runtime.Composable
 fun AppPreview() {
     App()
 }
+
+@Preview
+@Composable
+fun AboutPreview() {
+    AboutPage()
+}
