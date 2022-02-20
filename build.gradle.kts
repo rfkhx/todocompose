@@ -4,7 +4,6 @@ import java.util.Properties
 buildscript {
     repositories {
         gradlePluginPortal()
-        jcenter()
         google()
         mavenCentral()
     }

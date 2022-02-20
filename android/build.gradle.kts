@@ -8,12 +8,11 @@ group = "top.ntutn"
 version = "1.0"
 
 repositories {
-    jcenter()
 }
 
 dependencies {
     implementation(project(":common"))
-    implementation("androidx.activity:activity-compose:1.3.0")
+    implementation("androidx.activity:activity-compose:1.4.0")
 }
 
 android {

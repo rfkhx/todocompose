@@ -27,18 +27,20 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                api("com.arkivanov.decompose:decompose:0.5.1")
+                api("com.arkivanov.decompose:extensions-compose-jetbrains:0.5.1")
             }
         }
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                api("androidx.appcompat:appcompat:1.2.0")
-                api("androidx.core:core-ktx:1.3.1")
+                api("androidx.appcompat:appcompat:1.4.1")
+                api("androidx.core:core-ktx:1.7.0")
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation("junit:junit:4.13")
+                implementation("junit:junit:4.13.2")
             }
         }
         val desktopMain by getting {
