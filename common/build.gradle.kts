@@ -6,8 +6,8 @@ plugins {
     id("com.android.library")
     id("kotlin-parcelize")
     id("com.arkivanov.gradle.setup")
+    id("com.squareup.sqldelight")
 }
-
 
 val appVersionCode: String by ext
 val appVersionName: String by ext
@@ -38,6 +38,7 @@ kotlin {
             dependencies {
                 api("androidx.appcompat:appcompat:1.4.1")
                 api("androidx.core:core-ktx:1.7.0")
+                implementation ("com.squareup.sqldelight:android-driver:1.5.3")
             }
         }
         val androidTest by getting {
@@ -48,6 +49,7 @@ kotlin {
         val desktopMain by getting {
             dependencies {
                 api(compose.preview)
+                implementation ("com.squareup.sqldelight:sqlite-driver:1.5.3")
             }
         }
         val desktopTest by getting
@@ -67,6 +69,12 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+sqldelight {
+    database("MyDatabase") { // This will be the name of the generated database class.
+        packageName = "top.ntutn"
     }
 }
 
