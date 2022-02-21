@@ -19,6 +19,7 @@ android {
     compileSdkVersion(31)
     defaultConfig {
         applicationId = "top.ntutn.hrtodo.android"
+        buildToolsVersion = "31.0.0"
         minSdkVersion(24)
         targetSdkVersion(31)
     }
