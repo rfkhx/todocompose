@@ -59,8 +59,8 @@ android {
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         buildToolsVersion = "31.0.0"
-        versionCode = appVersionCode.toInt()
-        versionName = appVersionName
+//        versionCode = appVersionCode.toInt()
+//        versionName = appVersionName
         minSdkVersion(24)
         targetSdkVersion(31)
     }
