@@ -4,6 +4,8 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose") version "1.0.0"
     id("com.android.library")
+    id("kotlin-parcelize")
+    id("com.arkivanov.gradle.setup")
 }
 
 
