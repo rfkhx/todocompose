@@ -4,6 +4,8 @@ plugins {
     kotlin("multiplatform")
     id("org.jetbrains.compose") version "1.0.0"
     id("com.android.library")
+    id("kotlin-parcelize")
+    id("com.arkivanov.gradle.setup")
 }
 
 
@@ -27,18 +29,20 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                api("com.arkivanov.decompose:decompose:0.5.1")
+                api("com.arkivanov.decompose:extensions-compose-jetbrains:0.5.1")
             }
         }
         val commonTest by getting
         val androidMain by getting {
             dependencies {
-                api("androidx.appcompat:appcompat:1.2.0")
-                api("androidx.core:core-ktx:1.3.1")
+                api("androidx.appcompat:appcompat:1.4.1")
+                api("androidx.core:core-ktx:1.7.0")
             }
         }
         val androidTest by getting {
             dependencies {
-                implementation("junit:junit:4.13")
+                implementation("junit:junit:4.13.2")
             }
         }
         val desktopMain by getting {
@@ -54,8 +58,9 @@ android {
     compileSdkVersion(31)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
-        versionCode = appVersionCode.toInt()
-        versionName = appVersionName
+        buildToolsVersion = "31.0.0"
+//        versionCode = appVersionCode.toInt()
+//        versionName = appVersionName
         minSdkVersion(24)
         targetSdkVersion(31)
     }

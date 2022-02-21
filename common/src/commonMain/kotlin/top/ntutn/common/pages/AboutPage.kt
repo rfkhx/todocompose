@@ -1,4 +1,4 @@
-package top.ntutn.common
+package top.ntutn.common.pages
 
 import AppInfo
 import androidx.compose.foundation.layout.Column
