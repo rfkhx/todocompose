@@ -5,8 +5,8 @@ import androidx.compose.ui.window.rememberWindowState
 import com.arkivanov.decompose.DefaultComponentContext
 import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import top.ntutn.common.RootComponent
-import top.ntutn.common.RootContent
+import top.ntutn.common.component.RootComponent
+import top.ntutn.common.component.RootContent
 
 fun main() {
     val lifecycle = LifecycleRegistry()

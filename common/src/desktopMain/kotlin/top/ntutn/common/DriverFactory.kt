@@ -1,14 +1,13 @@
 package top.ntutn.common
 
 import com.google.auto.service.AutoService
-import com.squareup.sqldelight.db.SqlCursor
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.sqlite.driver.JdbcSqliteDriver
 import top.ntutn.MyDatabase
+import top.ntutn.common.datasource.IDriverFactory
 import java.io.File
 import java.util.*
 
-// in src/jvmMain/kotlin
 @AutoService(IDriverFactory::class)
 class DriverFactory: IDriverFactory {
     private val OS_NAME = System.getProperty("os.name").lowercase(Locale.getDefault())
@@ -35,6 +34,7 @@ class DriverFactory: IDriverFactory {
     private fun initDatabase(driver: SqlDriver) {
         val currentVer = getVersion(driver)
         if (currentVer == 0) {
+            MyDatabase.Schema.create(driver)
             setVersion(driver,1)
             println("init: created tables, setVersion to 1");
         } else {
@@ -47,7 +47,6 @@ class DriverFactory: IDriverFactory {
                 println("init")
             }
         }
-        val database = MyDatabase.invoke(driver)
     }
 
     private fun getVersion(driver: SqlDriver): Int {

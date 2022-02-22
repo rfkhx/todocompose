@@ -1,4 +1,4 @@
-package top.ntutn.common
+package top.ntutn.common.datasource
 
 import com.squareup.sqldelight.db.SqlDriver
 import top.ntutn.MyDatabase
@@ -14,8 +14,5 @@ interface IDriverFactory {
 
 fun createDatabase(): MyDatabase {
     val driver = IDriverFactory.instance.createDriver()
-    val database = MyDatabase(driver)
-
-    // Do more work with the database (see below).
-    return database
+    return MyDatabase(driver)
 }

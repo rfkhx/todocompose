@@ -12,7 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
-import top.ntutn.common.pages.AboutPage
+import top.ntutn.common.ui.AboutPage
 
 @Composable
 fun App() {
