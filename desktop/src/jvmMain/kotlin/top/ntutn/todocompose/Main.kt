@@ -1,12 +1,12 @@
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import com.arkivanov.decompose.DefaultComponentContext
+import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import top.ntutn.common.*
+import top.ntutn.common.RootComponent
+import top.ntutn.common.RootContent
 
 fun main() {
     val lifecycle = LifecycleRegistry()
@@ -16,8 +16,11 @@ fun main() {
         )
     application {
         val windowState = rememberWindowState()
+        LifecycleController(lifecycle, windowState)
         Window(
-            onCloseRequest = ::exitApplication,
+            onCloseRequest = {
+                exitApplication()
+            },
             state = windowState,
             title = "Decompose Dynamic Features"
         ) {
