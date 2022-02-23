@@ -1,4 +1,4 @@
-package top.ntutn.common
+package top.ntutn.common.component
 
 import com.arkivanov.decompose.ComponentContext
 

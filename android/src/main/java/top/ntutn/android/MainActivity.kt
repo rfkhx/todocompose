@@ -1,16 +1,13 @@
 package top.ntutn.android
 
-import top.ntutn.common.App
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.defaultComponentContext
-import top.ntutn.common.RootComponent
-import top.ntutn.common.RootContent
+import top.ntutn.common.component.RootComponent
+import top.ntutn.common.component.RootContent
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

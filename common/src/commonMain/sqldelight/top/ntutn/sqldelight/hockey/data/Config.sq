@@ -1,0 +1,15 @@
+CREATE TABLE simpleConfig (
+    config_key TEXT NOT NULL PRIMARY KEY,
+    config_value TEXT NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM simpleConfig;
+
+saveConfig:
+INSERT OR REPLACE INTO simpleConfig (config_key, config_value)
+  VALUES (?,?);
+
+readConfig:
+SELECT config_value FROM simpleConfig WHERE config_key = ?;
