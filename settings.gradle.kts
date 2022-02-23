@@ -16,6 +16,19 @@ pluginManagement {
             }
         }
     }
+    plugins {
+        // TODO 使用extra管理這些配置
+        val kotlinVersion = "1.6.10"
+        val agpVersion = "7.0.4"
+        val composeVersion = "1.0.1"
+
+        kotlin("jvm").version(kotlinVersion)
+        kotlin("multiplatform").version(kotlinVersion)
+        kotlin("android").version(kotlinVersion)
+        id("com.android.application").version(agpVersion)
+        id("com.android.library").version(agpVersion)
+        id("org.jetbrains.compose").version(composeVersion)
+    }
 }
 rootProject.name = "todocompose"
 
