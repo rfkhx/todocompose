@@ -12,7 +12,7 @@ import java.util.*
 class DriverFactory: IDriverFactory {
     private val OS_NAME = System.getProperty("os.name").lowercase(Locale.getDefault())
 
-    val currentConfigDir by lazy {
+    private val currentConfigDir by lazy {
         val configFolder = if (OS_NAME == "windows") {
             File(System.getenv("APPDATA"), "hrtodo")
         } else {
@@ -22,8 +22,8 @@ class DriverFactory: IDriverFactory {
         configFolder
     }
 
-    val sqliteFile get() = File(currentConfigDir, "todo.db")
-    val sqliteUrl get() = "jdbc:sqlite:${sqliteFile.canonicalPath}"
+    private val sqliteFile get() = File(currentConfigDir, "todo.db")
+    private val sqliteUrl get() = "jdbc:sqlite:${sqliteFile.canonicalPath}"
 
     override fun createDriver(): SqlDriver {
         val driver: SqlDriver = JdbcSqliteDriver(sqliteUrl)
@@ -36,7 +36,7 @@ class DriverFactory: IDriverFactory {
         if (currentVer == 0) {
             MyDatabase.Schema.create(driver)
             setVersion(driver,1)
-            println("init: created tables, setVersion to 1");
+            println("init: created tables, setVersion to 1")
         } else {
             val schemaVer = MyDatabase.Schema.version
             if (schemaVer > currentVer) {

@@ -1,0 +1,23 @@
+-- 存储TODO记录
+
+import java.lang.Boolean;
+
+CREATE TABLE todoTB (
+    id TEXT PRIMARY KEY NOT NULL,                   -- uuid
+    content TEXT NOT NULL,
+    create_time INTEGER NOT NULL,
+    modifiy_time INTEGER NOT NULL,
+    checked INTEGER AS Boolean NOT NULL DEFAULT 0
+);
+
+selectAll:
+SELECT * FROM todoTB;
+
+addItem:
+INSERT INTO todoTB (id, content, create_time, modifiy_time)
+VALUES (?, ?, ?, ?);
+
+checkItem:
+UPDATE todoTB
+SET checked = ?, modifiy_time = ?
+WHERE id = ?;

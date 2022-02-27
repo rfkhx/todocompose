@@ -3,15 +3,17 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import com.arkivanov.decompose.DefaultComponentContext
+import com.arkivanov.decompose.ExperimentalDecomposeApi
 import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleController
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
-import top.ntutn.common.component.RootComponent
-import top.ntutn.common.component.RootContent
+import top.ntutn.common.component.LandscapeRootComponent
+import top.ntutn.common.ui.LandscapeRootContent
 
+@OptIn(ExperimentalDecomposeApi::class)
 fun main() {
     val lifecycle = LifecycleRegistry()
     val root = // Counter()
-        RootComponent(
+        LandscapeRootComponent(
             componentContext = DefaultComponentContext(lifecycle),
         )
     application {
@@ -22,10 +24,10 @@ fun main() {
                 exitApplication()
             },
             state = windowState,
-            title = "Decompose Dynamic Features"
+            title = "海瑞待办"
         ) {
             MaterialTheme {
-                RootContent(root)
+                LandscapeRootContent(root)
             }
         }
     }

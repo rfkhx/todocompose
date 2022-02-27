@@ -6,20 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import com.arkivanov.decompose.defaultComponentContext
-import top.ntutn.common.component.RootComponent
-import top.ntutn.common.component.RootContent
+import top.ntutn.common.component.PortraitRootComponent
+import top.ntutn.common.ui.PortraitRootContent
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val root =
-            RootComponent(
+            PortraitRootComponent(
                 componentContext = defaultComponentContext(),
             )
         setContent {
             MaterialTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    RootContent(rootComponent = root)
+                    PortraitRootContent(rootComponent = root)
                 }
             }
         }

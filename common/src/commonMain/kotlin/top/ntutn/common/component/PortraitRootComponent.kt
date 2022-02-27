@@ -8,7 +8,7 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
 
-interface Root {
+interface PortraitRoot {
     val routerState: Value<RouterState<*, Child>>
 
     sealed class Child {
@@ -17,18 +17,18 @@ interface Root {
     }
 }
 
-class RootComponent(componentContext: ComponentContext) : Root, ComponentContext by componentContext {
+class PortraitRootComponent(componentContext: ComponentContext) : PortraitRoot, ComponentContext by componentContext {
     private val router =
-        router<Config, Root.Child>(
+        router<Config, PortraitRoot.Child>(
             initialConfiguration = Config.Counter,
             handleBackButton = true,
             childFactory = ::createChild
         )
 
-    private fun createChild(config: Config, componentContext: ComponentContext): Root.Child =
+    private fun createChild(config: Config, componentContext: ComponentContext): PortraitRoot.Child =
         when (config) {
-            is Config.Counter -> Root.Child.Counter(CounterComponent(componentContext) { router.push(Config.About) })
-            is Config.About -> Root.Child.About(AboutComponent(componentContext))
+            is Config.Counter -> PortraitRoot.Child.Counter(CounterComponent(componentContext) { router.push(Config.About) })
+            is Config.About -> PortraitRoot.Child.About(AboutComponent(componentContext))
         }
 
     private sealed class Config : Parcelable {
@@ -39,5 +39,5 @@ class RootComponent(componentContext: ComponentContext) : Root, ComponentContext
         object About : Config()
     }
 
-    override val routerState: Value<RouterState<*, Root.Child>> = router.state
+    override val routerState: Value<RouterState<*, PortraitRoot.Child>> = router.state
 }
