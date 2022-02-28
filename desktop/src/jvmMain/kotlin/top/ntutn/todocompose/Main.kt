@@ -1,4 +1,6 @@
 import androidx.compose.material.MaterialTheme
+import androidx.compose.runtime.remember
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
@@ -18,13 +20,15 @@ fun main() {
         )
     application {
         val windowState = rememberWindowState()
+        val windowIcon = painterResource("todo_launcher.png")
         LifecycleController(lifecycle, windowState)
         Window(
             onCloseRequest = {
                 exitApplication()
             },
             state = windowState,
-            title = "海瑞待办"
+            title = "海瑞待办",
+            icon = windowIcon
         ) {
             MaterialTheme {
                 LandscapeRootContent(root)
