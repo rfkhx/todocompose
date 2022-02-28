@@ -15,6 +15,7 @@ import top.ntutn.common.ui.PortraitRootContent
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = "海瑞待办"
         val useLandscapeLayout = isLandscape() && isTabletDevice()
 
         if (useLandscapeLayout) {
