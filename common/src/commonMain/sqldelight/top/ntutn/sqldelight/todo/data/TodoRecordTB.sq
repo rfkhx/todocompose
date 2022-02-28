@@ -1,0 +1,11 @@
+-- TODO记录的增删查改记录
+
+CREATE TABLE todoRecordTB (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    iid TEXT NOT NULL,                    -- 被操作item的id
+    operation_time INTEGER NOT NULL,
+    operation INTEGER AS Int NOT NULL               -- 0 新建 1 修改 2 删除
+);
+
+addRecord:
+INSERT INTO todoRecordTB (iid, operation_time, operation) VALUES (?, ?, ?);
