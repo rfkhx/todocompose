@@ -16,6 +16,7 @@
 
 1. desktop运行要求jdk版本为11～16，打包要求jdk版本为java15/16。安卓要求jdk版本为11～15。
 2. Linux下和macOS下package name带有点号时会导致无法启动。
+3. 默认不会把java.sql等包打到产物，需要先执行`./gradlew suggestRuntimeModules`确定依赖，然后添加到`desktop/build.gradle.kts`
 
 ### macOS运行
 

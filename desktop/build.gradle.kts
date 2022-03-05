@@ -31,6 +31,7 @@ compose.desktop {
     application {
         mainClass = "MainKt"
         nativeDistributions {
+            modules("java.instrument", "java.sql", "jdk.unsupported")
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "海瑞待办"
             packageVersion = "1.0.0"
@@ -45,6 +46,7 @@ compose.desktop {
                 packageName = "hairuitodo"
                 dockName = "海瑞待办"
                 iconFile.set(project.file("todo_launcher.icns"))
+                jvmArgs += listOf("-Xdock:icon=src/jvmMain/resources/todo_launcher.png")
             }
 
             windows {
