@@ -11,6 +11,7 @@ import top.ntutn.common.component.LandscapeRootComponent
 import top.ntutn.common.component.PortraitRootComponent
 import top.ntutn.common.ui.LandscapeRootContent
 import top.ntutn.common.ui.PortraitRootContent
+import top.ntutn.common.ui.theme.TodoTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                 componentContext = defaultComponentContext()
             )
             setContent {
-                MaterialTheme {
+                TodoTheme {
                     Surface(color = MaterialTheme.colors.background) {
                         LandscapeRootContent(rootComponent = root)
                     }
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 componentContext = defaultComponentContext(),
             )
             setContent {
-                MaterialTheme {
+                TodoTheme {
                     Surface(color = MaterialTheme.colors.background) {
                         PortraitRootContent(rootComponent = root)
                     }

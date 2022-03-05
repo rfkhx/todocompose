@@ -2,6 +2,7 @@ package top.ntutn.common.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -27,12 +28,14 @@ fun PortraitRootContent(rootComponent: PortraitRootComponent) {
                 }
             }
         }
-        Row(modifier = Modifier.padding(16.dp)) {
-            Button(onClick = rootComponent::onTodoPage) {
-                Text("TODO")
-            }
-            Button(onClick = rootComponent::onAboutPage) {
-                Text("关于")
+        Surface(modifier = Modifier.fillMaxWidth(), elevation = 4.dp) {
+            Row(modifier = Modifier.padding(16.dp)) {
+                Button(onClick = rootComponent::onTodoPage) {
+                    Text("TODO")
+                }
+                Button(onClick = rootComponent::onAboutPage) {
+                    Text("关于")
+                }
             }
         }
     }

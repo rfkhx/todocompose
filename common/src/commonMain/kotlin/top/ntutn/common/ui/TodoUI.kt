@@ -4,10 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.Checkbox
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,8 +23,10 @@ fun TodoUI(todoComponent: TodoComponent) {
             onCheckItem = {
                 todoComponent.checkItem(it)
             })
-        TodoInputArea(modifier = Modifier.fillMaxWidth()) {
-            todoComponent.addTask(it)
+        Surface(modifier = Modifier.fillMaxWidth(), elevation = 4.dp) {
+            TodoInputArea(modifier = Modifier.fillMaxWidth()) {
+                todoComponent.addTask(it)
+            }
         }
     }
 }
@@ -66,7 +65,7 @@ fun TodoInputArea(modifier: Modifier = Modifier, onCreateItem: (String) -> Unit)
             onCreateItem(inputtingText.trim())
             inputtingText = ""
         }
-        TextField(
+        OutlinedTextField(
             value = inputtingText,
             onValueChange = {
                 inputtingText = it
@@ -80,7 +79,7 @@ fun TodoInputArea(modifier: Modifier = Modifier, onCreateItem: (String) -> Unit)
                 onSend = {
                     sendAction()
                 }
-            )
+            ),
         )
         Spacer(Modifier.width(8.dp))
         Button(onClick = sendAction) {
