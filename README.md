@@ -18,14 +18,20 @@
 2. Linux下和macOS下package name带有点号时会导致无法启动。
 3. 默认不会把java.sql等包打到产物，需要先执行`./gradlew suggestRuntimeModules`确定依赖，然后添加到`desktop/build.gradle.kts`
 
-### macOS运行
+## 配置存储位置
 
-macOS尽管没有像iOS一样要求所有应用从App Store下载，但其默认也不能安装未知来源应用。
+macOS和Linux下配置存储在`/Users/{your user name}/.config/hrtodo`
 
-对于macOS 10.13以上，需要从命令允许未知来源。
+## 安装
+### macOS安装
 
 ```shell
-sudo spctl --master-disable
+curl -L -o /tmp/hrtodo.dmg "https://github.com/rfkhx/todocompose/releases/download/macos-latest/-1.0.0.dmg"
+hdiutil attach "/tmp/hrtodo.dmg" -nobrowse
+rm -rf /Applications/海瑞待办.app
+cp -rf /Volumes/海瑞待办/海瑞待办.app /Applications
+hdiutil detach /Volumes/海瑞待办
+rm /tmp/hrtodo.dmg
+#sudo xattr -rd com.apple.quarantine /Applications/海瑞待办.app
+osascript -e 'do shell script "xattr -rd com.apple.quarantine /Applications/海瑞待办.app" with administrator privileges'
 ```
-
-然后打开一次应用，然后在设置->安全性与隐私->通用中允许。
