@@ -10,6 +10,7 @@ import com.arkivanov.decompose.extensions.compose.jetbrains.lifecycle.LifecycleC
 import com.arkivanov.essenty.lifecycle.LifecycleRegistry
 import top.ntutn.common.component.LandscapeRootComponent
 import top.ntutn.common.ui.LandscapeRootContent
+import top.ntutn.common.ui.theme.TodoTheme
 
 @OptIn(ExperimentalDecomposeApi::class)
 fun main() {
@@ -30,7 +31,7 @@ fun main() {
             title = "海瑞待办",
             icon = windowIcon
         ) {
-            MaterialTheme {
+            TodoTheme {
                 LandscapeRootContent(root)
             }
         }

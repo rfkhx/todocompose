@@ -2,8 +2,10 @@ package top.ntutn.common.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,12 +21,14 @@ import top.ntutn.common.component.LandscapeRootComponent
 @Composable
 fun LandscapeRootContent(rootComponent: LandscapeRootComponent) {
     Row {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Button(onClick = rootComponent::onTodoPage) {
-                Text("TODO")
-            }
-            Button(onClick = rootComponent::onAboutPage) {
-                Text("关于")
+        Surface(modifier = Modifier.fillMaxHeight(), elevation = 4.dp) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                Button(onClick = rootComponent::onTodoPage) {
+                    Text("TODO")
+                }
+                Button(onClick = rootComponent::onAboutPage) {
+                    Text("关于")
+                }
             }
         }
         Children(routerState = rootComponent.routerState, animation = crossfadeScale()) {

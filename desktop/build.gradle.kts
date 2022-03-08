@@ -45,6 +45,7 @@ compose.desktop {
             macOS {
                 packageName = "hairuitodo"
                 dockName = "海瑞待办"
+                bundleID = "top.ntutn.hrtodo"
                 iconFile.set(project.file("todo_launcher.icns"))
                 jvmArgs += listOf("-Xdock:icon=src/jvmMain/resources/todo_launcher.png")
             }
