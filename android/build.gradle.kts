@@ -28,7 +28,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-DEBUG"
+            resValue("string", "app_name", "hrtodo")
+            isMinifyEnabled = false
+        }
         getByName("release") {
+            resValue("string", "app_name", "海瑞待办")
             isMinifyEnabled = true
         }
     }
