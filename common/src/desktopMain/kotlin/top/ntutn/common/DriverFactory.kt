@@ -1,5 +1,6 @@
 package top.ntutn.common
 
+import AppInfo
 import com.google.auto.service.AutoService
 import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.sqlite.driver.JdbcSqliteDriver
@@ -22,7 +23,7 @@ class DriverFactory: IDriverFactory {
         configFolder
     }
 
-    private val sqliteFile get() = File(currentConfigDir, "todo.db")
+    private val sqliteFile get() = File(currentConfigDir, if(AppInfo.CHANNEL == "local_test") "todo_test.db" else "todo.db")
     private val sqliteUrl get() = "jdbc:sqlite:${sqliteFile.canonicalPath}"
 
     override fun createDriver(): SqlDriver {

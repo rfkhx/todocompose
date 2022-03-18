@@ -11,6 +11,14 @@ plugins {
 
 val appVersionCode: String by ext
 val appVersionName: String by ext
+val channel by lazy {
+    try {
+        File(rootProject.projectDir, "build/CHANNEL").readText().trim().ifBlank { "local_test" }
+    } catch (e: Exception) {
+        e.printStackTrace()
+        "local_test"
+    }
+}
 
 group = "top.ntutn"
 version = appVersionName
@@ -94,6 +102,7 @@ val generateAppInfoFile = tasks.register("generateAppInfoFile") {
         object AppInfo {
             const val VERSION_CODE = $appVersionCode
             const val VERSION_NAME = "$appVersionName"
+            const val CHANNEL = "$channel"
         }
     """.trimIndent()
     val appInfoDir = File(project.buildDir, "generated/source/appInfo")
