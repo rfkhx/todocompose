@@ -10,6 +10,6 @@ import androidx.compose.ui.Modifier
 @Composable
 fun AboutPage() {
     Column(modifier = Modifier.fillMaxSize()) {
-        Text("海瑞待办 ${AppInfo.VERSION_NAME}")
+        Text("海瑞待办 ${AppInfo.VERSION_NAME}, channel=${AppInfo.CHANNEL}")
     }
 }
