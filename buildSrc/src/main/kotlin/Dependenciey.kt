@@ -3,7 +3,7 @@ object Versions {
     const val AGP_VERSION = "7.1.2"
     const val COMPOSE_VERSION = "1.1.0"
 
-    const val SQL_DELIGHT = "1.5.3"
+    const val SQL_DELIGHT = "1.5.5"
     const val DECOMPOSE_GRADLE_PLUGIN = "9f046bd98f"
     const val DECOMPOSE = "0.5.1"
 
