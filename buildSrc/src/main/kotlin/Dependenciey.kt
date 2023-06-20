@@ -5,7 +5,7 @@ object Versions {
 
     const val SQL_DELIGHT = "1.5.3"
     const val DECOMPOSE_GRADLE_PLUGIN = "9f046bd98f"
-    const val DECOMPOSE = "0.5.1"
+    const val DECOMPOSE = "0.8.0"
 
     const val DEPENDENCY_UPDATE = "0.42.0"
 
