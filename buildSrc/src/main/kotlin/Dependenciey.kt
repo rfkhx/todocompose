@@ -13,7 +13,7 @@ object Versions {
     const val ANDROIDX_APPCOMPAT = "1.4.1"
     const val ANDROIDX_CORE = "1.7.0"
 
-    const val AUTO_SERVICE = "1.0.1"
+    const val AUTO_SERVICE = "1.1.1"
     const val JUNIT = "4.13.2"
 }
 
