@@ -1,5 +1,5 @@
 object Versions {
-    const val KOTLIN_VERSION = "1.6.10"
+    const val KOTLIN_VERSION = "1.9.25"
     const val AGP_VERSION = "7.1.2"
     const val COMPOSE_VERSION = "1.1.0"
 
