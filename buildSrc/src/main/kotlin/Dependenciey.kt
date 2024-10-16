@@ -9,7 +9,7 @@ object Versions {
 
     const val DEPENDENCY_UPDATE = "0.42.0"
 
-    const val ANDROIDX_ACTIVITY = "1.4.0"
+    const val ANDROIDX_ACTIVITY = "1.9.3"
     const val ANDROIDX_APPCOMPAT = "1.4.1"
     const val ANDROIDX_CORE = "1.7.0"
 
