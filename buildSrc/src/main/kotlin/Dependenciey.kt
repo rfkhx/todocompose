@@ -7,7 +7,7 @@ object Versions {
     const val DECOMPOSE_GRADLE_PLUGIN = "9f046bd98f"
     const val DECOMPOSE = "0.5.1"
 
-    const val DEPENDENCY_UPDATE = "0.42.0"
+    const val DEPENDENCY_UPDATE = "0.61.0"
 
     const val ANDROIDX_ACTIVITY = "1.4.0"
     const val ANDROIDX_APPCOMPAT = "1.4.1"
